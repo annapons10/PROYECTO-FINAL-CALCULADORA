@@ -1,0 +1,175 @@
+:root {
+    --color-primer-circulo: #420000;
+    --color-segundo-circulo:#1A1A1A;
+    --color-tercer-circulo:#000;
+    --color-display:#000;
+    --color-numeros: #e7dede;
+    --color-operaciones-derecha: #000;
+    --color-circulos-cambiar: #003b29;
+    --bg-botones-numeros: #6c639180;
+    --bg-botones-operaciones-arriba: #57497c80;
+    --bg-botones-operaciones-derecha: #bbb81dcc; 
+    --bg-color-fondo: linear-gradient(to left, #18141d, #120618);
+    --bg-color-fondo-display: #7F7FBD;
+    --hover-numeros-operaciones-arriba: #a9b5;
+    --hover-operaciones-derecha:  #a3a381; 
+    --active-numeros-operaciones-arriba: #0000001a;
+    --active-operaciones-derecha: #c0c03c; 
+    --border-flex-container: #9B9BBF;
+    --box-shadow-flex-container:  #8D8DB0;
+    --border-botones-numeros-operaciones-arriba: #686ac5;
+    --border-operaciones-derecha: #c2c049cc;
+    --outline-botones-numeros-operaciones-arriba: #524ca0;
+    --box-shadow-botones-numeros-operaciones-arriba: #c9bfe780;
+    --otuline-operaciones-derecha: #949447;
+    --box-shadow-operaciones-derecha: #c0c03c;
+}
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: var(--bg-color-fondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    user-select: none;
+}
+
+.flex-container {   
+    display: flex;
+    flex-direction: column;
+    width: 100%; /*Para que los hijos ocupen el 100% del contenedor*/
+    max-width: 280px;
+    border: 1px solid var(--border-flex-container);
+    box-shadow: 0 0 10px var(--box-shadow-flex-container);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.calculadora__top {
+    position: relative;
+    background-color: var(--bg-color-fondo-display);
+    overflow: hidden; /* Evita scroll */
+    min-height: 8rem;
+    padding: 10px;
+    overflow-wrap: break-word; /* Me permite que la palabra/num salte de línea. */
+}
+
+
+.h1{
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    text-align: right;
+    color: var(--color-display);
+    margin: 0;
+    font-weight: 300;
+    font-size: 3rem;
+    width: 60%; /* Asegurar que ocupe todo el ancho del contenedor */
+}
+
+.circle { 
+    position: absolute;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+} 
+
+.circle:first-child {
+    top: 10px;
+    left: 65px;
+    background-color: var(--color-primer-circulo);
+} 
+
+.circle:nth-child(2) {
+    top: 10px;
+    left: 40px;
+    background-color: var(--color-segundo-circulo);
+}
+.circle:last-child {
+    top: 10px;
+    left: 15px;
+    background-color: var(--color-tercer-circulo);
+} 
+
+.circle.circleCambiar { /*más especificidad para sobreescribir el estilo de .cirle.*/
+    background-color:var(--color-circulos-cambiar);
+} 
+
+
+#buttons {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1px;
+}
+
+#buttons button {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 45px; 
+    font-size: 1.2rem; 
+    color: var(--color-numeros);
+    border: 1px solid var(--border-botones-numeros-operaciones-arriba);
+    transition: back-ground-color 0.5 ease;
+    cursor: pointer;
+}
+
+
+#buttons button.dark {
+    background-color: var(--bg-botones-operaciones-arriba);
+}
+
+#buttons button.orange {
+    font-size: 1.5rem; 
+    background-color: var(--bg-botones-operaciones-derecha);
+    border: 1px solid var(--border-operaciones-derecha);
+    color: var(--color-operaciones-derecha);
+    
+}
+
+#buttons button.gray {
+    background-color:var(--bg-botones-numeros);
+   
+} 
+
+#buttons button.grande{
+    font-size: 2.2rem;
+}
+
+#buttons button.double {
+    grid-column: span 2;
+}
+
+#buttons button:hover {
+    background-color: var(--hover-numeros-operaciones-arriba);
+}
+
+#buttons button:active {
+    background-color: var(--active-numeros-operaciones-arriba);
+}
+
+#buttons button.orange:hover {
+    background-color: var(--hover-operaciones-derecha);
+    
+}
+
+#buttons button.orange:active {
+    background-color: var(--active-operaciones-derecha);
+}
+
+button:focus {
+    outline: 2px solid var(--outline-botones-numeros-operaciones-arriba); /* Establece un borde resaltado al enfocar el botón */
+    box-shadow: 0 0 10px var(--box-shadow-botones-numeros-operaciones-arriba); /* Agrega una sombra suave alrededor del botón enfocado */
+}
+
+button.orange:focus {
+    outline: 2px solid var(--otuline-operaciones-derecha); /* Establece un borde resaltado al enfocar el botón */
+    box-shadow: 0 0 10px var(--box-shadow-operaciones-derecha); /* Agrega una sombra suave alrededor del botón enfocado */
+}
