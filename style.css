@@ -192,16 +192,15 @@ button.orange:focus {
 
 }
  
-@media (min-width: 950px) {
+@media (min-width: 900px) {
     .h1{
         font-size: 4rem;
     }
 
     .flex-container {   
-        max-width: 40%;
-        /* min-width: 40%; */
+        max-width: 32%;
+        min-width: 28%;
         max-height: 80%;
-        /* min-height: 60%; */
         border: 1px solid var(--border-flex-container);
         box-shadow: 0 0 10px var(--box-shadow-flex-container);
         border-radius: 20px;
